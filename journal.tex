@@ -1,0 +1,89 @@
+\documentclass[a5paper,10pt]{article}
+\usepackage[a5paper,margin=0.8cm]{geometry}
+\usepackage{titlesec}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{ulem}
+\usepackage{tikz}
+\usepackage{pgffor, ifthen}
+
+% Define colors
+\definecolor{darkgray}{RGB}{50,50,50}
+\definecolor{darkred}{RGB}{150,30,30}
+\definecolor{lightgray}{RGB}{200,200,200}
+
+% Styling section titles
+\titleformat{\section}{\bfseries\color{darkred}\large}{}{0em}{}[\titlerule]
+
+% Other styling
+\setlength{\parindent}{0pt}
+
+% Define variable line spacing
+\newlength{\lineSpacing}
+\setlength{\lineSpacing}{1.0em} % You can adjust this value to change the spacing
+
+% Lines to write on 
+\newcommand{\notes}[3][\empty]{%
+    \noindent \vspace{0.5em}\\
+    \foreach \n in {1,...,#2}{%
+        \ifthenelse{\equal{#1}{\empty}}
+            {\textcolor{lightgray}{\rule{#3}{0.5pt}}\\}
+            {\textcolor{lightgray}{\rule{#3}{0.5pt}\vspace{#1}}\\}
+        }
+   \vspace{-1.5em} 
+}
+
+%\textcolor{lightgray}{\rule{\textwidth}{0.4pt}} \\
+
+\begin{document}
+
+% Date & Main Activity in one line
+\noindent
+{\LARGE \textbf{Date :} \underline{\hspace{2.5cm}}} \hfill
+{\large \textbf{Activité :} \underline{\hspace{4.5cm}}}
+
+\vspace{0.5em}
+
+\begin{multicols}{2} % Start two-column layout
+
+% Health Log Section
+\section*{Health Log}
+\begin{description}
+	\item[Body Battery :] \underline{\hspace{0.8cm}} \% $\rightarrow$ \underline{\hspace{0.8cm}} \%
+	\item[Sleep :] \underline{\hspace{0.875cm}} h \underline{\hspace{0.875cm}} min ; \underline{\hspace{0.875cm}} \%
+	\item[Training Readiness :] \underline{\hspace{1.65cm}} \%
+\end{description}
+
+\vfill % Fill remaining space to balance columns
+\columnbreak % Move to second column
+
+% Three Main Tasks
+\section*{Tâches principales}
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=0.8cm]
+    \item \underline{\hspace{5.5cm}}
+    \item \underline{\hspace{5.5cm}}
+    \item \underline{\hspace{5.5cm}}
+\end{enumerate}
+
+\vfill
+
+\end{multicols} % End two-column layout
+
+% Free Thoughts Section (Moved Above)
+\section*{Pensées}
+\notes[\lineSpacing]{5}{\textwidth}
+
+% Sport of the Day Section
+\section*{Sport}
+\notes[\lineSpacing]{2}{\textwidth}
+
+\vspace{0.5em}
+
+% Daily Reading Section (Moved Below)
+\section*{Lecture du jour}
+\paragraph{Verset en or :}  \notes[\lineSpacing]{2}{\textwidth}
+\paragraph{Réflexions :} \notes[\lineSpacing]{3}{\textwidth}
+
+
+\end{document}
