@@ -22,11 +22,11 @@
 
 % Define variable line spacing
 \newlength{\lineSpacing}
-\setlength{\lineSpacing}{1.0em} % You can adjust this value to change the spacing
+\setlength{\lineSpacing}{0.75em} % You can adjust this value to change the spacing
 
 % Lines to write on 
 \newcommand{\notes}[3][\empty]{%
-    \noindent \vspace{0.5em}\\
+    \noindent \vspace{0.2em}\\
     \foreach \n in {1,...,#2}{%
         \ifthenelse{\equal{#1}{\empty}}
             {\textcolor{lightgray}{\rule{#3}{0.5pt}}\\}
@@ -71,17 +71,17 @@
 
 % Free Thoughts Section (Moved Above)
 \section*{Pensées}
-\notes[\lineSpacing]{5}{\textwidth}
+\notes[\lineSpacing]{7}{\textwidth}
 
 % Sport of the Day Section
 \section*{Sport}
-\notes[\lineSpacing]{2}{\textwidth}
+\notes[\lineSpacing]{1}{\textwidth}
 
 \vspace{0.5em}
 
 % Daily Reading Section (Moved Below)
 \section*{Lecture du jour}
 \paragraph{Verset en or :}  \notes[\lineSpacing]{2}{\textwidth}
-\paragraph{Réflexions :} \notes[\lineSpacing]{3}{\textwidth}
+\paragraph{Réflexions :} \notes[\lineSpacing]{4}{\textwidth}
 
 \end{document}
