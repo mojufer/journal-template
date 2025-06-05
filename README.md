@@ -2,4 +2,4 @@
 LaTeX template for a journal to fill up (in french)
 
 
-(journal.pdf)[The template]
+[The template](journal.pdf)
